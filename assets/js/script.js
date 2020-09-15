@@ -6,8 +6,10 @@ var nytimesDiv = document.getElementById("nytimes");
 var guardianDiv = document.getElementById("theguardian");
 var searchTerm = document.getElementById("searchInput");
 var searchButton = document.getElementById("btn-search");
-var requestNyTimes = function() {
-    var searchInputEl = document.getElementById("searchInput").value;
+var searchHistory = JSON.parse(localStorage.getItem("History")) || []
+
+var requestNyTimes = function(searchInputEl) {
+    
     fetch(urlArticles + searchInputEl + apiKeyNyt).then(function(response) {
         return response.json()
     }).then(function(nyt) {
@@ -31,8 +33,8 @@ var requestNyTimes = function() {
         nytimesDiv.appendChild(newDivAbstractElNyt);
     })
 }
-var guardianAPI = function(){
-    var searchInputEl = document.getElementById("searchInput").value;
+var guardianAPI = function(searchInputEl){
+    
     fetch(urlGuardian + searchInputEl + apiKeyGuard)
     .then(function(response){
         // the promise
@@ -59,11 +61,19 @@ var guardianAPI = function(){
         guardianDiv.appendChild(newDivAbstractEl);
     })
 }
+var storeHistory = function(searchInputEl) {
+    searchHistory.unshift(searchInputEl);
+    localStorage.setItem("History", JSON.stringify(searchHistory)) 
+}
 var requestAll = function() {
+    var searchInputEl = document.getElementById("searchInput").value;
     //empty divs that hold headlines so you do not have to refresh when you type over last search term
     $(nytimesDiv).empty()
     $(guardianDiv).empty()
-    requestNyTimes();
-    guardianAPI();
+    requestNyTimes(searchInputEl);
+    guardianAPI(searchInputEl);
+
+    storeHistory(searchInputEl);
+
     $("#searchInput").val("")
 }
