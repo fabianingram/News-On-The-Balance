@@ -7,7 +7,7 @@ It then displays click-able Headlines in two columns, one for news source.
 If the user chooses they can click a headline to be taken to the article on said news source.  
   
 ## Picture in Action  
-<img src="./assets/images/live-site.png" />  
+![Live Site](/assets/images/live-site.png "Deployed Website")  
   
 ## Active Sites 
 [**Live Site**](https://jesusmanteca.github.io/News-On-The-Balance/)  
