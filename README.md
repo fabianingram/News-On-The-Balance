@@ -10,7 +10,7 @@ If the user chooses they can click a headline to be taken to the article on said
 <img src="./assets/images/live-site.png" />  
   
 ## Active Sites 
-[**Live Site**](https://jesusmanteca.github.io/News-On-The-Balance/)
+[**Live Site**](https://jesusmanteca.github.io/News-On-The-Balance/)  
 [**Active GitHub Repo**](https://github.com/jesusmanteca/News-On-The-Balance)  
 [**Old GitHub Repo**](https://github.com/jesusmanteca/colab-app)  
   
