@@ -11,6 +11,7 @@ var searchHistory = JSON.parse(localStorage.getItem("History")) || []
 
 var renderHistory = function(){
 
+    // empties the history of the div
     $("#history").empty()
 
     for (var i = 0; i < searchHistory.length; i++){
