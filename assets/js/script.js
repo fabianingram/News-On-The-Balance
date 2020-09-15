@@ -8,6 +8,7 @@ var searchTerm = document.getElementById("searchInput");
 var searchButton = document.getElementById("btn-search");
 var searchHistory = JSON.parse(localStorage.getItem("History")) || []
 
+
 var renderHistory = function(){
 
     $("#history").empty()
@@ -22,11 +23,11 @@ var renderHistory = function(){
             requestNyTimes(textContent);
             guardianAPI(textContent);
         })
-
     }
 }
 var requestNyTimes = function(searchInputEl) {
     $(nytimesDiv).empty()
+
     fetch(urlArticles + searchInputEl + apiKeyNyt).then(function(response) {
         return response.json()
     }).then(function(nyt) {
@@ -51,7 +52,9 @@ var requestNyTimes = function(searchInputEl) {
     })
 }
 var guardianAPI = function(searchInputEl){
+
     $(guardianDiv).empty()
+
     fetch(urlGuardian + searchInputEl + apiKeyGuard)
     .then(function(response){
         // the promise

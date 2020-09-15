@@ -4,7 +4,9 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
+
   <title>News on the Balance 📰</title>
+
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- Mobile Specific Metas
@@ -17,6 +19,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -25,10 +29,10 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
-    <h1>News on the Balance</h1>
+    <h1 class="card-panel blue darken-4 white-text">News on the Balance</h1>
     <!-- Primary buttons -->
     <input type="text" id="searchInput" name="search-input"></input>
-    <a class="button button-primary" id="btn-search" href="#" onClick="requestAll()">Search</a>
+    <a class="button button-primary blue darken-4" id="btn-search" href="#" onClick="requestAll()">Search</a>
     <div class="row">
         <div class="one-third column" id="nytimes"></div>
         <div class="one-third column" id="theguardian"></div>
@@ -38,6 +42,8 @@
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>
