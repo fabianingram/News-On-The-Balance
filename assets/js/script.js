@@ -8,8 +8,26 @@ var searchTerm = document.getElementById("searchInput");
 var searchButton = document.getElementById("btn-search");
 var searchHistory = JSON.parse(localStorage.getItem("History")) || []
 
+
+var renderHistory = function(){
+
+    $("#history").empty()
+
+    for (var i = 0; i < searchHistory.length; i++){
+
+        var historyButton = $("<button>");
+        historyButton.text(searchHistory[i]);
+        $('#history').append(historyButton);
+        historyButton.click(function(){
+            var textContent = this.textContent;
+            requestNyTimes(textContent);
+            guardianAPI(textContent);
+        })
+    }
+}
 var requestNyTimes = function(searchInputEl) {
-    
+    $(nytimesDiv).empty()
+
     fetch(urlArticles + searchInputEl + apiKeyNyt).then(function(response) {
         return response.json()
     }).then(function(nyt) {
@@ -34,7 +52,9 @@ var requestNyTimes = function(searchInputEl) {
     })
 }
 var guardianAPI = function(searchInputEl){
-    
+
+    $(guardianDiv).empty()
+
     fetch(urlGuardian + searchInputEl + apiKeyGuard)
     .then(function(response){
         // the promise
@@ -68,12 +88,9 @@ var storeHistory = function(searchInputEl) {
 var requestAll = function() {
     var searchInputEl = document.getElementById("searchInput").value;
     //empty divs that hold headlines so you do not have to refresh when you type over last search term
-    $(nytimesDiv).empty()
-    $(guardianDiv).empty()
+    renderHistory()
     requestNyTimes(searchInputEl);
     guardianAPI(searchInputEl);
-
     storeHistory(searchInputEl);
-
     $("#searchInput").val("")
 }
