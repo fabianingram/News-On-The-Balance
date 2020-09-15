@@ -72,8 +72,6 @@ var requestAll = function() {
     $(guardianDiv).empty()
     requestNyTimes(searchInputEl);
     guardianAPI(searchInputEl);
-
     storeHistory(searchInputEl);
-
     $("#searchInput").val("")
 }
