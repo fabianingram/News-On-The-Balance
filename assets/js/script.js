@@ -32,18 +32,15 @@ var requestNyTimes = function(searchInputEl) {
     fetch(urlArticles + searchInputEl + apiKeyNyt).then(function(response) {
         return response.json()
     }).then(function(nyt) {
+
         console.log(nyt);
-        console.log(nyt.response)
-        console.log(nyt.response.docs)
-        console.log(nyt.response.docs[0])
-        console.log(nyt.response.docs[0].web_url)
-        console.log(nyt.response.docs[0].multimedia[0])
-        console.log(nyt.response.docs[0].headline)
-        console.log("New York Times: ", nyt.response.docs[0].headline.main)
+        
         var nytURL = nyt.response.docs[0].web_url
         var nytHeadline = nyt.response.docs[0].headline.main;
+        
         var newDivHeadlineElNyt = document.createElement("a");
         var newDivAbstractElNyt = document.createElement("div");
+
         newDivHeadlineElNyt.href = nytURL
         newDivHeadlineElNyt.setAttribute("target", "_blank");
         newDivHeadlineElNyt.innerHTML = "<h4>" + "NYT: " + nytHeadline + "<h4>"
