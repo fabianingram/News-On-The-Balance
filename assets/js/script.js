@@ -64,7 +64,7 @@ var guardianAPI = function(searchInputEl){
     })
     .then(function(guard) {
         var newHeaderDivGuard = document.createElement("div");
-        newHeaderDivGuard.setAttribute("style", "color: blue; text-align: center;")
+        newHeaderDivGuard.setAttribute("style", "color: #1a237e; text-align: center;")
         newHeaderDivGuard.innerHTML = "<h4>" + "The Guardian UK " + "<h4>"
         guardianDiv.appendChild(newHeaderDivGuard);
 
@@ -73,11 +73,11 @@ var guardianAPI = function(searchInputEl){
             var guardianWebTitle = guard.response.results[i].webTitle
             var newDivTitleEl = document.createElement("a")
             var newDivAbstractEl = document.createElement("div")
-            newDivAbstractEl.setAttribute("style", "border-style: solid; border-width: thin; border-color: #f5f5f5; margin-bottom: 4px; border-radius: 10px; text-align: center; padding: 15px; margin-bottom: 10px; box-shadow: 10px 5px 5px blue;");
+            newDivAbstractEl.setAttribute("style", "border-style: solid; border-width: thin; border-color: #f5f5f5; margin-bottom: 4px; border-radius: 10px; text-align: center; padding: 15px; margin-bottom: 10px; box-shadow: 10px 5px 5px #1a237e;");
             newDivTitleEl.href = guardURL
             newDivTitleEl.setAttribute("target", "_blank")
             newDivTitleEl.innerHTML = "<h5>" + guardianWebTitle + "</h5>"
-            newDivTitleEl.setAttribute("style", "font-weight: bold; color: blue; text-decoration: none;")
+            newDivTitleEl.setAttribute("style", "font-weight: bold; color: #1a237e; text-decoration: none;")
             newDivAbstractEl.appendChild(newDivTitleEl);
             guardianDiv.appendChild(newDivAbstractEl);
         }
