@@ -32,24 +32,20 @@ var requestNyTimes = function(searchInputEl) {
     fetch(urlArticles + searchInputEl + apiKeyNyt).then(function(response) {
         return response.json()
     }).then(function(nyt) {
-        console.log(nyt);
-        console.log(nyt.response)
-        console.log(nyt.response.docs)
-        console.log(nyt.response.docs[0])
-        console.log(nyt.response.docs[0].web_url)
-        console.log(nyt.response.docs[0].multimedia[0])
-        console.log(nyt.response.docs[0].headline)
-        console.log("New York Times: ", nyt.response.docs[0].headline.main)
-        var nytURL = nyt.response.docs[0].web_url
-        var nytHeadline = nyt.response.docs[0].headline.main;
-        var newDivHeadlineElNyt = document.createElement("a");
-        var newDivAbstractElNyt = document.createElement("div");
-        newDivHeadlineElNyt.href = nytURL
-        newDivHeadlineElNyt.setAttribute("target", "_blank");
-        newDivHeadlineElNyt.innerHTML = "<h4>" + "NYT: " + nytHeadline + "<h4>"
-        newDivHeadlineElNyt.setAttribute("style", "font-weight: bold; color: red; text-decoration: none;");
-        newDivAbstractElNyt.appendChild(newDivHeadlineElNyt);
-        nytimesDiv.appendChild(newDivAbstractElNyt);
+        for (var i = 0; i <= 2; i++ ){
+            var nytURL = nyt.response.docs[i].web_url
+            var nytHeadline = nyt.response.docs[i].headline.main;
+            var newDivHeadlineElNyt = document.createElement("a");
+            var newDivAbstractElNyt = document.createElement("div");
+            newDivAbstractElNyt.setAttribute("style", "border-style: solid; border-width: thin; border-color: red; margin-bottom: 4px");
+            newDivHeadlineElNyt.href = nytURL
+            newDivHeadlineElNyt.setAttribute("target", "_blank");
+            newDivHeadlineElNyt.innerHTML = "<h4>" + "NYT: " + nytHeadline + "<h4>"
+            newDivHeadlineElNyt.setAttribute("style", "font-weight: bold; color: red; text-decoration: none;");
+            newDivAbstractElNyt.appendChild(newDivHeadlineElNyt);
+            nytimesDiv.appendChild(newDivAbstractElNyt);
+        }
+        
     })
 }
 var guardianAPI = function(searchInputEl){
@@ -62,24 +58,21 @@ var guardianAPI = function(searchInputEl){
         return response.json()
     })
     .then(function(guard) {
-        // the return
-        console.log(guard)
-        //what we're looking for
-        console.log(guard.response.results)
-        // run the function that runs the loop with the parameters of search and results by getting the information from the search input when I click submit
-        //console.log(findSearchResult(response.response.results, searchInputEl));
-        console.log("Guardian:", guard.response.results[0].webTitle)
-        console.log(guard.response.results[0].webUrl)
-        var guardURL = guard.response.results[0].webUrl
-        var guardianWebTitle = guard.response.results[0].webTitle
-        var newDivTitleEl = document.createElement("a")
-        var newDivAbstractEl = document.createElement("div")
-        newDivTitleEl.href = guardURL
-        newDivTitleEl.setAttribute("target", "_blank")
-        newDivTitleEl.innerHTML = "<h4>" + "Guardian: " + guardianWebTitle + "<h4>"
-        newDivTitleEl.setAttribute("style", "font-weight: bold; color: blue; text-decoration: none;")
-        newDivAbstractEl.appendChild(newDivTitleEl);
-        guardianDiv.appendChild(newDivAbstractEl);
+    
+        for (var i = 0; i <= 2; i++ ){
+            var guardURL = guard.response.results[i].webUrl
+            var guardianWebTitle = guard.response.results[i].webTitle
+            var newDivTitleEl = document.createElement("a")
+            var newDivAbstractEl = document.createElement("div")
+            newDivAbstractEl.setAttribute("style", "border-style: solid; border-width: thin; border-color: blue; margin-bottom: 4px");
+            newDivTitleEl.href = guardURL
+            newDivTitleEl.setAttribute("target", "_blank")
+            newDivTitleEl.innerHTML = "<h4>" + "Guardian: " + guardianWebTitle + "<h4>"
+            newDivTitleEl.setAttribute("style", "font-weight: bold; color: blue; text-decoration: none;")
+            newDivAbstractEl.appendChild(newDivTitleEl);
+            guardianDiv.appendChild(newDivAbstractEl);
+        }
+        
     })
 }
 var storeHistory = function(searchInputEl) {
