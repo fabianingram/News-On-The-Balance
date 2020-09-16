@@ -32,21 +32,20 @@ var requestNyTimes = function(searchInputEl) {
     fetch(urlArticles + searchInputEl + apiKeyNyt).then(function(response) {
         return response.json()
     }).then(function(nyt) {
-
-        console.log(nyt);
+        for (var i = 0; i <= 2; i++ ){
+            var nytURL = nyt.response.docs[i].web_url
+            var nytHeadline = nyt.response.docs[i].headline.main;
+            var newDivHeadlineElNyt = document.createElement("a");
+            var newDivAbstractElNyt = document.createElement("div");
+            newDivAbstractElNyt.setAttribute("style", "border-style: solid; border-width: thin; border-color: red; margin-bottom: 4px");
+            newDivHeadlineElNyt.href = nytURL
+            newDivHeadlineElNyt.setAttribute("target", "_blank");
+            newDivHeadlineElNyt.innerHTML = "<h4>" + "NYT: " + nytHeadline + "<h4>"
+            newDivHeadlineElNyt.setAttribute("style", "font-weight: bold; color: red; text-decoration: none;");
+            newDivAbstractElNyt.appendChild(newDivHeadlineElNyt);
+            nytimesDiv.appendChild(newDivAbstractElNyt);
+        }
         
-        var nytURL = nyt.response.docs[0].web_url
-        var nytHeadline = nyt.response.docs[0].headline.main;
-        
-        var newDivHeadlineElNyt = document.createElement("a");
-        var newDivAbstractElNyt = document.createElement("div");
-
-        newDivHeadlineElNyt.href = nytURL
-        newDivHeadlineElNyt.setAttribute("target", "_blank");
-        newDivHeadlineElNyt.innerHTML = "<h4>" + "NYT: " + nytHeadline + "<h4>"
-        newDivHeadlineElNyt.setAttribute("style", "font-weight: bold; color: red; text-decoration: none;");
-        newDivAbstractElNyt.appendChild(newDivHeadlineElNyt);
-        nytimesDiv.appendChild(newDivAbstractElNyt);
     })
 }
 var guardianAPI = function(searchInputEl){
