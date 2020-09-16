@@ -59,24 +59,21 @@ var guardianAPI = function(searchInputEl){
         return response.json()
     })
     .then(function(guard) {
-        // the return
-        console.log(guard)
-        //what we're looking for
-        console.log(guard.response.results)
-        // run the function that runs the loop with the parameters of search and results by getting the information from the search input when I click submit
-        //console.log(findSearchResult(response.response.results, searchInputEl));
-        console.log("Guardian:", guard.response.results[0].webTitle)
-        console.log(guard.response.results[0].webUrl)
-        var guardURL = guard.response.results[0].webUrl
-        var guardianWebTitle = guard.response.results[0].webTitle
-        var newDivTitleEl = document.createElement("a")
-        var newDivAbstractEl = document.createElement("div")
-        newDivTitleEl.href = guardURL
-        newDivTitleEl.setAttribute("target", "_blank")
-        newDivTitleEl.innerHTML = "<h4>" + "Guardian: " + guardianWebTitle + "<h4>"
-        newDivTitleEl.setAttribute("style", "font-weight: bold; color: blue; text-decoration: none;")
-        newDivAbstractEl.appendChild(newDivTitleEl);
-        guardianDiv.appendChild(newDivAbstractEl);
+    
+        for (var i = 0; i <= 2; i++ ){
+            var guardURL = guard.response.results[i].webUrl
+            var guardianWebTitle = guard.response.results[i].webTitle
+            var newDivTitleEl = document.createElement("a")
+            var newDivAbstractEl = document.createElement("div")
+            newDivAbstractEl.setAttribute("style", "border-style: solid; border-width: thin; border-color: blue; margin-bottom: 4px");
+            newDivTitleEl.href = guardURL
+            newDivTitleEl.setAttribute("target", "_blank")
+            newDivTitleEl.innerHTML = "<h4>" + "Guardian: " + guardianWebTitle + "<h4>"
+            newDivTitleEl.setAttribute("style", "font-weight: bold; color: blue; text-decoration: none;")
+            newDivAbstractEl.appendChild(newDivTitleEl);
+            guardianDiv.appendChild(newDivAbstractEl);
+        }
+        
     })
 }
 var storeHistory = function(searchInputEl) {
