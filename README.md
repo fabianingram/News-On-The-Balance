@@ -8,7 +8,7 @@
 5. User searches are save in their own column for easy access.
   
 ## Picture in Action  
-![picture](./assets/images/webpagewithbuttons.png)
+![picture](./assets/images/styledwebpageNOTB.png)
   
 ## Active Sites 
 [**Live Site**](https://jesusmanteca.github.io/News-On-The-Balance/)  
