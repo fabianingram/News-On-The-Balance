@@ -87,6 +87,7 @@ var guardianAPI = function(searchInputEl){
 var storeHistory = function(searchInputEl) {
     searchHistory.unshift(searchInputEl);
     localStorage.setItem("History", JSON.stringify(searchHistory)) 
+    renderHistory()
 }
 var requestAll = function() {
     var searchInputEl = document.getElementById("searchInput").value;
